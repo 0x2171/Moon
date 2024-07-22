@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+  body {
+    background: url('https://www.solarsystemscope.com/textures/download/2k_stars_milky_way.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .lilik-moon {
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    --glow-color: rgb(217, 176, 255);
+    text-shadow: 0 0 10px #8A2BE2, 0 0 20px #8A2BE2, 0 0 30px #8A2BE2, 0 0 40px #8A2BE2;
+    color: var(--glow-color);
+    z-index: 1;
+  }
+
+  @keyframes moonRotation {
+    0% {
+      background-position: 0% 0%;
+      border: 0px solid #00000000;
+    }
+    18.18% {
+      background-position: 200% 0%;
+      border: 0px solid #00000000;
+    }
+    36.36% {
+      background-position: 400% 0%;
+      border: 0px solid #00000000;
+    }
+    54.54% {
+      background-position: 600% 0%;
+      border: 0px solid #00000000;
+    }
+    72.72% {
+      background-position: 800% 0%;
+      border: 0px solid #00000000;
+    }
+    90.90% {
+      background-position: 1000% 0%;
+      border: 0px solid #00000000;
+    }
+    100% {
+      background-position: 1100% 0%;
+      border: 0px solid #00000000;
+    }
+  }
+
+  .moon-background{
+    top: 7rem;
+    display: block;
+    width: 15rem;
+    height: 15rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-image: url('https://www.solarsystemscope.com/textures/download/2k_moon.jpg');
+    background-repeat: repeat-x;
+    background-size: 110% 100%;
+    opacity: 1;
+    animation-name: moonRotation;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards !important;
+    box-shadow: inset -10px 8px 6px -5px #ffffff,
+    inset 20px -20px 40px 30px rgba(0, 0, 0, 0.9), 7px -6px 14px rgba(255, 255, 255, 0.3215686275);
+  }
+  
+  button {
+   transform: translateY(+750%);
+ --glow-color: rgb(217, 176, 255);
+ --glow-spread-color: rgba(191, 123, 255, 0.781);
+ --enhanced-glow-color: rgb(231, 206, 255);
+ --btn-color: rgb(100, 61, 136);
+ border: .25em solid var(--glow-color);
+ padding: 1em 3em;
+ color: var(--glow-color);
+ font-size: 15px;
+ font-weight: bold;
+ background-color: var(--btn-color);
+ border-radius: 1em;
+ outline: none;
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 1em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+ text-shadow: 0 0 .5em var(--glow-color);
+ transition: all 0.3s;
+}
+
+button::after {
+ pointer-events: none;
+ position: absolute;
+ top: 120%;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background-color: var(--glow-spread-color);
+ filter: blur(2em);
+ opacity: .7;
+ transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+button:hover {
+ color: var(--btn-color);
+ background-color: var(--glow-color);
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 2em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+}
+
+button:active {
+ box-shadow: 0 0 0.6em .25em var(--glow-color),
+        0 0 2.5em 2em var(--glow-spread-color),
+        inset 0 0 .5em .25em var(--glow-color);
+}
+  </style>
+</head>
+<body>
+<h1 class="lilik-moon">Lilik Moon</h1>
+<div class="moon-background"></div>
+<a href="tg://user?id=1946717650" target="_blank">
+  <button>Find out everything</button>
+</a>
+</body>
+</html>
