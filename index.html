@@ -18,7 +18,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 9vw;
-    font-family: Arial, sans-serif; /* Change the font family as needed */
+    font-family: 'Your-Chosen-Font', cursive;
     font-weight: bold;
     color: var(--glow-color);
     --glow-color: rgb(217, 130, 255);
@@ -58,10 +58,10 @@
   }
 
   .moon-background{
-    top: 30vw; /* Adjust the position as needed */
+    top: 30vw;
     display: block;
-    width: 75vw; /* Adjust the size as needed */
-    height: 75vw; /* Adjust the size as needed */
+    width: 75vw;
+    height: 75vw;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -84,8 +84,8 @@
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 6vw; /* Adjust the size as needed */
-    padding: 0.5em 1.5em; /* Adjust the padding as needed */
+    font-size: 6vw; 
+    padding: 0.5em 1.5em; 
     --glow-color: rgb(217, 176, 255);
     --glow-spread-color: rgba(191, 123, 255, 0.781);
     --enhanced-glow-color: rgb(231, 206, 255);
@@ -101,7 +101,7 @@
             inset 0 0 .75em .25em var(--glow-color);
     text-shadow: 0 0 .5em var(--glow-color);
     transition: all 0.3s;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
   }
 
   button::after {
@@ -131,23 +131,70 @@
             inset 0 0 .5em .25em var(--glow-color);
   }
   
-  
+  .poem-popup {
+  display: none;
+  position: fixed;
+  top: 36.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);  
+  background-size: cover;
+  background-position: center;
+  padding: 3em;
+  border-radius: 100em;
+  --glow-color: rgb(217, 176, 255);
+  box-shadow: 0 0 1em .25em var(--glow-color);
+  font-size: 3.5vw;
+  text-align: center;
+  max-width: 80%;
+  overflow-y: auto;
+  white-space: nowrap;
+  font-family: 'Your-Chosen-Font', cursive;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  border: 5px solid var(--glow-color);
+  animation: fade-in 1s ease-in-out;
+}
+
+.poem-popup p {
+  margin: 0;
+  line-height: 2.5;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} 
   </style>
 </head>
 <body>
 <h1 class="lilik-moon">Lilik Moon</h1>
 <div class="moon-background"></div>
-<button id="redirectButton">Find out everything</button>
+<button id="poemButton">Find out everything</button>
+  <div id="poemPopup" class="poem-popup">
+    <p>In gardens of verse, Safarmo does bloom,</p>
+    <p>Her beauty, a melody in the gloom.</p>
+    <p>Eyes sparkling like stars in the nights array,</p>
+    <p>A radiant smile that chases gloom away.</p>
+    <p>Her grace, a poem penned by natures hand,</p>
+    <p>Safarmo beauty, enchanting as any land.</p>
+  </div>
+  <script>
+    var poemButton = document.getElementById('poemButton');
+    var originalText = poemButton.innerText;
 
-<script>
-document.getElementById('redirectButton').addEventListener('click', function() {
-  var button = document.getElementById('redirectButton');
-  button.innerText = "Ask me anything";
+    poemButton.addEventListener('click', function() {
+      document.getElementById('poemPopup').style.display = 'block';
+      poemButton.innerText = 'Poem for you'; 
 
-  setTimeout(function() {
-    window.location.href = "tg://user?id=1946717650";
-  }, 3000);
-});
-</script>
+      poemButton.addEventListener('click', function() {
+        document.getElementById('poemPopup').style.display = 'none';
+        poemButton.innerText = originalText;
+      });
+    });
+  </script>
 </body>
 </html>
