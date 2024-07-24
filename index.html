@@ -132,42 +132,42 @@
   }
   
   .poem-popup {
-  display: none;
-  position: fixed;
-  top: 36.5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.8);  
-  background-size: cover;
-  background-position: center;
-  padding: 3em;
-  border-radius: 100em;
-  --glow-color: rgb(217, 176, 255);
-  box-shadow: 0 0 1em .25em var(--glow-color);
-  font-size: 3.5vw;
-  text-align: center;
-  max-width: 80%;
-  overflow-y: auto;
-  white-space: nowrap;
-  font-family: 'Your-Chosen-Font', cursive;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  border: 5px solid var(--glow-color);
-  animation: fade-in 1s ease-in-out;
-}
-
-.poem-popup p {
-  margin: 0;
-  line-height: 2.5;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
+   display: none;
+   position: fixed;
+   top: 36.5%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: rgba(0, 0, 0, 0.8);  
+   background-size: cover;
+   background-position: center;
+   padding: 3em;
+   border-radius: 100em;
+   --glow-color: rgb(217, 176, 255);
+   box-shadow: 0 0 1em .25em var(--glow-color);
+   font-size: 3.5vw;
+   text-align: center;
+   max-width: 80%;
+   overflow-y: auto;
+   white-space: nowrap;
+   font-family: 'Your-Chosen-Font', cursive;
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+   border: 5px solid var(--glow-color);
+   animation: fade-in 1s ease-in-out;
   }
-  to {
-    opacity: 1;
+
+  .poem-popup p {
+    margin: 0;
+    line-height: 2.5;
   }
-} 
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  } 
   </style>
 </head>
 <body>
