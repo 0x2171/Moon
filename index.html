@@ -132,21 +132,22 @@
   }
   
   .poem-popup {
+   top: 30vw;
    display: none;
-   position: fixed;
-   top: 36.5%;
+   width: 54vw;
+   height: 54vw;
+   position: absolute;
    left: 50%;
-   transform: translate(-50%, -50%);
+   transform: translateX(-50%);
    background-color: rgba(0, 0, 0, 0.8);  
    background-size: cover;
    background-position: center;
    padding: 3em;
-   border-radius: 100em;
+   border-radius: 50em;
    --glow-color: rgb(217, 176, 255);
    box-shadow: 0 0 1em .25em var(--glow-color);
-   font-size: 3.5vw;
+   font-size: 3.6vw;
    text-align: center;
-   max-width: 80%;
    overflow-y: auto;
    white-space: nowrap;
    font-family: 'Your-Chosen-Font', cursive;
@@ -168,6 +169,19 @@
       opacity: 1;
     }
   } 
+  @keyframes fade-out {
+   from {
+     opacity: 1;
+   }
+   to {
+     opacity: 0;
+   }
+ }
+
+ .poem-popup.fade-out {
+   animation: fade-out 1s ease-in-out;
+ }
+
   </style>
 </head>
 <body>
@@ -183,24 +197,32 @@
     <p>Safarmo beauty, enchanting as any land.</p>
   </div>
   <script>
-    var poemButton = document.getElementById('poemButton');
-    var originalText = poemButton.innerText;
+  var poemButton = document.getElementById('poemButton');
+  var poemPopup = document.getElementById('poemPopup');
+  var originalText = poemButton.innerText;
+  var isPopupOpen = false;
 
-    poemButton.addEventListener('click', function() {
-      document.getElementById('poemPopup').style.display = 'block';
-      poemButton.innerText = 'Poem for you'; 
-
-      poemButton.addEventListener('click', function() {
-        document.getElementById('poemPopup').style.display = 'none';
-        poemButton.innerText = originalText;
-      });
-    });
-  </script>
+  poemButton.addEventListener('click', function() {
+    if (isPopupOpen) {
+      poemPopup.classList.add('fade-out');
+      setTimeout(function() {
+        poemPopup.style.display = 'none';
+        poemPopup.classList.remove('fade-out');
+      }, 1000);
+      poemButton.innerText = originalText;
+      isPopupOpen = false;
+    } else {
+      poemPopup.style.display = 'block';
+      poemButton.innerText = 'Poem for you';
+      isPopupOpen = true;
+    }
+  });
+</script>
 <button id="heartButton">Hearts for you❤️</button>
 <style>
 #heartButton {
     position: absolute;
-    top: 90%;
+    top: 80%;
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
@@ -268,7 +290,7 @@
     });
     }
   });
-  for (let i = 0; i < 150; i++) {
+  for (let i = 0; i < 100; i++) {
       const star = document.createElement('span');
       star.className = 'star';
       star.style.top = Math.random() * 100 + '%';
@@ -278,5 +300,42 @@
       document.body.appendChild(star);
   }
 </script>
+<button id="copyrightButton">Copyright</button>
+  <div id="copyrightPopup" class="poem-popup">
+    <p>This website and all its contents,</p>
+    <p>including but not limited to text,</p>
+    <p>are the exclusive property of BSN.</p>
+    <p>BSN retains full ownership and control</p>
+    <p>over the website and its materials.</p>
+    <button id="closeCopyrightButton">Close</button>
+  </div>
+
+  <script>
+    var copyrightButton = document.getElementById('copyrightButton');
+    var copyrightPopup = document.getElementById('copyrightPopup');
+    var closeCopyrightButton = document.getElementById('closeCopyrightButton');
+
+    copyrightButton.addEventListener('click', function() {
+      copyrightPopup.style.display = 'block';
+    });
+
+    closeCopyrightButton.addEventListener('click', function() {
+      copyrightPopup.style.display = 'none';
+    });
+  </script>
+<style>
+#copyrightButton {
+  position: absolute;
+  top: 95%;
+  font-size: 25px;
+  padding: 4px 16px; 
+  height: 50px; 
+  width: auto;
+}
+#closeCopyrightButton {
+ top: 85%;
+ font-size: 20px;
+}
+</style>
 </body>
 </html>
