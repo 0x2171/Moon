@@ -88,7 +88,7 @@
 
   button {
     position: absolute;
-    top: 70%;
+    top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 6vw; 
@@ -176,6 +176,7 @@
       opacity: 1;
     }
   } 
+  
   @keyframes fade-out {
    from {
      opacity: 1;
@@ -188,7 +189,6 @@
  .poem-popup.fade-out {
    animation: fade-out 1s ease-in-out;
  }
-
   </style>
 </head>
 <body>
@@ -203,7 +203,7 @@
     <p>Her grace, a poem penned by natures hand,</p>
     <p>Safarmo beauty, enchanting as any land.</p>
   </div>
-  <script>
+<script>
   var poemButton = document.getElementById('poemButton');
   var poemPopup = document.getElementById('poemPopup');
   var originalText = poemButton.innerText;
@@ -225,37 +225,7 @@
     }
   });
 </script>
-<button id="heartButton">Hearts for you❤️</button>
 <style>
-#heartButton {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    font-size: 35px;
-    background-color: var(--btn-color);
-    color: var(--glow-color);
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    max-height: 5%;
-  }
-.heart {
-    position: fixed;
-    animation: fall 3s linear forwards;
-  }
-
-  @keyframes fall {
-    0% {
-      top: var(--start-top);
-    }
-    100% {
-      top: 100%;
-      opacity: 0;
-    }
-  }
-
 .star {
       position: absolute;
       width: 3px;
@@ -279,24 +249,6 @@
     }
 </style>
 <script>
-  var heartButton = document.getElementById('heartButton');
-
-  heartButton.addEventListener('click', function() {
-    var numHearts = Math.floor(Math.random() * 10) + 5; 
-
-    for (var i = 0; i < numHearts; i++) {
-      var heart = document.createElement('span');
-      heart.innerHTML = '❤️';
-      heart.className = 'heart';
-      heart.style.left = Math.random() * 100 + '%';
-      heart.style.fontSize = Math.random() * 2 + 1 + 'em';
-      heart.style.setProperty('--start-top', Math.random() * 50 + '%');
-      document.body.appendChild(heart);
-      heart.addEventListener('animationend', function() {
-        this.parentNode.removeChild(this);
-    });
-    }
-  });
   for (let i = 0; i < 120; i++) {
       const star = document.createElement('span');
       star.className = 'star';
@@ -307,42 +259,5 @@
       document.body.appendChild(star);
   }
 </script>
-<button id="copyrightButton">Copyright</button>
-  <div id="copyrightPopup" class="poem-popup">
-    <p>This website and all its contents,</p>
-    <p>including but not limited to text,</p>
-    <p>are the exclusive property of BSN.</p>
-    <p>BSN retains full ownership and control</p>
-    <p>over the website and its materials.</p>
-    <button id="closeCopyrightButton">Close</button>
-  </div>
-
-  <script>
-    var copyrightButton = document.getElementById('copyrightButton');
-    var copyrightPopup = document.getElementById('copyrightPopup');
-    var closeCopyrightButton = document.getElementById('closeCopyrightButton');
-
-    copyrightButton.addEventListener('click', function() {
-      copyrightPopup.style.display = 'block';
-    });
-
-    closeCopyrightButton.addEventListener('click', function() {
-      copyrightPopup.style.display = 'none';
-    });
-  </script>
-<style>
-#copyrightButton {
-  position: absolute;
-  top: 95%;
-  font-size: 25px;
-  padding: 4px 16px; 
-  height: 50px; 
-  width: auto;
-}
-#closeCopyrightButton {
- top: 85%;
- font-size: 20px;
-}
-</style>
 </body>
 </html>
